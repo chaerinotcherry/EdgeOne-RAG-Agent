@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./vectorstore:/app/vectorstore
+      - ./incidents:/app/incidents
+    env_file:
+      - .env
+
+  chromadb:
+    image: chromadb/chroma
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./vectorstore:/chroma/chroma
