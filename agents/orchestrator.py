@@ -14,14 +14,22 @@ from agents.alert_agent import alert_agent
 llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 def orchestrator(question: str) -> str:
-    # 1. Quick Route (Takes < 1 second)
     router_prompt = f"""
+    You are an AI Agent that helps the user with questions related to Tencent Cloud's CDN product--EdgeOne.
     Route the user's request to the correct agent. Reply with ONLY the name.
-    - DocAgent: For documentation, how-to, or best practices.
-    - QueryAgent: For logs, error counts, or traffic stats.
-    - SummaryAgent: For high-level reports.
-    - AlertAgent: To send notifications or emails.
+
+    - DocAgent: Questions about EdgeOne FEATURES, CAPABILITIES, HOW-TO, configuration, or best practices. 
+    Examples: "What log services does EdgeOne provide?", "How do I set up DDoS protection?", "What features does EdgeOne have?"
     
+    - QueryAgent: Questions that require analyzing ACTUAL REAL-TIME DATA from the user's application.
+    Examples: "How many 5xx errors today?", "What is my current traffic volume?", "Show me today's request count."
+    
+    - SummaryAgent: High-level summary reports of actual traffic data.
+
+    - AlertAgent: Send notifications or emails about detected issues.
+
+    Key distinction: If the question is about what EdgeOne CAN DO → DocAgent. If it's about what IS HAPPENING in the user's data → QueryAgent.
+
     Question: {question}
     Agent:"""
     

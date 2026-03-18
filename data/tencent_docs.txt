@@ -1,0 +1,12 @@
+touch data/tencent_docs.txt
+```
+
+`data/tencent_docs.txt` 파일에 아래 내용 붙여넣기:
+```
+Tencent Cloud COS (Cloud Object Storage) is a distributed storage service for storing large amounts of unstructured data. It offers high scalability, security, and reliability.
+
+Tencent Cloud CVM (Cloud Virtual Machine) provides scalable cloud computing services. Users can launch virtual machines within minutes with custom CPU, memory, and storage configurations.
+
+Tencent Cloud TKE (Tencent Kubernetes Engine) is a highly scalable container management service. It supports native Kubernetes and integrates with other Tencent Cloud services.
+
+Hunyuan is Tencent's large language model, supporting text generation, summarization, and Q&A tasks. It is available via Tencent Cloud API.
