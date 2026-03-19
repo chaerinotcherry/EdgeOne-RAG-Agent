@@ -45,7 +45,7 @@ export default function EdgeLogIntelligence() {
     setMessages(prev => [...prev, { role: "user", content: q }]);
 
     try {
-      const res = await fetch("http://localhost:8000/ask", {
+      const res = await fetch("https://giada-subuncinal-subspirally.ngrok-free.dev/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question: q }),

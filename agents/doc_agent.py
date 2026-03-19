@@ -59,9 +59,8 @@ retriever = ContextualCompressionRetriever(
 
 prompt = ChatPromptTemplate.from_messages([
     ("system", """
+You are a helpful Tencent EdgeOne expert assistant.
 Answer questions based on the provided documentation context.
-If the context contains relevant information, use it to answer even if it doesn't directly address the question format (e.g. comparisons, summaries).
-Only say "I could not find this in the EdgeOne documentation" if the context has absolutely no relevant information.
 For general greetings or small talk, respond naturally.
 Keep answers specific and actionable.
 Context: {context}"""),
